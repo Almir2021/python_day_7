@@ -25,11 +25,9 @@ if lifes <= 7:
         for l in range(lenght_of_word):
             # print(chosen_list[l])
             if guess == chosen_list[l]:
-                print("Right")
                 guessing_word.pop(l)
                 guessing_word.insert(l, guess)
             else:
-                print("Wrong")
                 lifes += 1
 
         print(guessing_word)
