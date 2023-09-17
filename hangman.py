@@ -67,6 +67,7 @@ word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 guessing_word = []
 lifes = 6
+dispaly = 0
 lenght_of_word = len(chosen_word)
 chosen_list = list(chosen_word)
 for l in range(lenght_of_word):
@@ -77,7 +78,7 @@ for l in range(lenght_of_word):
     # print(chosen_list[l])
 # TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
 
-while lifes >=0:
+while lifes != 0:
         guess = str(input("Take a guess  "))
         guess = guess.lower()
         print(guess)
@@ -92,14 +93,17 @@ while lifes >=0:
         else:
               lifes -= 1
               if lifes <=5  :
-                 print(stages[lifes])   
+                 #print(stages[lifes]) 
+                 dispaly =1
+        if dispaly ==1:
+         print(stages[lifes])      
         print(guessing_word)
 
         if all([char in guessing_word for char in chosen_list]):
          print("You won") 
          break
         
-if lifes >= 0:
-    print("You lost")
+        if lifes == 0:
+            print("You lost")
 
 
