@@ -1,64 +1,10 @@
 # Step 1
 import random
 
-import random
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+
+import hangman_art
+hangman_art.stages 
 
 
 word_list = ["aardvark", "baboon", "camel"]
@@ -68,6 +14,7 @@ chosen_word = random.choice(word_list)
 guessing_word = []
 lifes = 6
 dispaly = 0
+already_guessed = []
 lenght_of_word = len(chosen_word)
 chosen_list = list(chosen_word)
 for l in range(lenght_of_word):
@@ -90,13 +37,16 @@ while lifes != 0:
              if guess == chosen_list[l]:
                 guessing_word.pop(l)
                 guessing_word.insert(l, guess)
+                already_guessed.append(guess)
+                for letter in already_guessed:
+                    if letter == 
         else:
               lifes -= 1
               if lifes <=5  :
                  #print(stages[lifes]) 
                  dispaly =1
         if dispaly ==1:
-         print(stages[lifes])      
+         print(hangman_art.stages[lifes])      
         print(guessing_word)
 
         if all([char in guessing_word for char in chosen_list]):
